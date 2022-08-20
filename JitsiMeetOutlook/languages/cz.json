@@ -43,7 +43,8 @@
       "ru": "Russian",
       "de": "German",
       "cz": "Czech",
-      "es" :  "Spanish"
+      "es": "Spanish",
+      "sv": "Swedish"
     },
 
     "tabControlSettings": {

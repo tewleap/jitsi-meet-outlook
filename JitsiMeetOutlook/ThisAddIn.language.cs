@@ -29,6 +29,7 @@ namespace JitsiMeetOutlook
         private byte[] findJson(string language)
         {
             Dictionary<string, byte[]> languages = new Dictionary<string, byte[]>();
+            languages.Add("sv", Resources.languages.sv);
             languages.Add("en", Resources.languages.en);
             languages.Add("de", Resources.languages.de);
             languages.Add("fr", Resources.languages.fr);

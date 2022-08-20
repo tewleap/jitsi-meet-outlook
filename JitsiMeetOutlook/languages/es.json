@@ -41,9 +41,10 @@
         "en": "Inglés",
         "fr": "Francés",
         "ru": "Ruso",
-        "de" :  "Alemán",
+        "de": "Alemán",
         "es": "Español",
-        "cz" : "Czech"
+        "cz": "Czech",
+        "sv": "Swedish"
       },
   
       "tabControlSettings": {
