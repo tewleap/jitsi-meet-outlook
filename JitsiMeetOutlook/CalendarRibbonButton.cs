@@ -12,7 +12,7 @@ namespace JitsiMeetOutlook
             setLanguage();
         }
 
-        private async void buttonNewJitsiMeeting_Click(object sender, RibbonControlEventArgs e)
+        private void buttonNewJitsiMeeting_Click(object sender, RibbonControlEventArgs e)
         {
             // Get the Application object
             Outlook.Application application = Globals.ThisAddIn.Application;
