@@ -1,4 +1,5 @@
 ﻿using Microsoft.Office.Tools.Ribbon;
+using System.Threading.Tasks;
 
 namespace JitsiMeetOutlook
 {
@@ -34,7 +35,7 @@ namespace JitsiMeetOutlook
 
         private void RoomID_TextChanged(object sender, RibbonControlEventArgs e)
         {
-            setRoomId(fieldRoomID.Text);
+            _ = setRoomId(fieldRoomID.Text);
         }
 
         private void buttonStartWithVideoMuted_Click(object sender, RibbonControlEventArgs e)

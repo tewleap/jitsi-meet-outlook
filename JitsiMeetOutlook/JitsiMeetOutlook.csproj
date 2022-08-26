@@ -413,7 +413,7 @@
     <ManifestKeyFile>cert.pfx</ManifestKeyFile>
   </PropertyGroup>
   <PropertyGroup>
-    <ManifestCertificateThumbprint>5DB6434EA827A1EDABD40E561A9A475EF6F39DF5</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>7049D72A5ADA5BDB1F23D67A44E0754278E2317C</ManifestCertificateThumbprint>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
     <DebugSymbols>true</DebugSymbols>

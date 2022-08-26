@@ -32,9 +32,9 @@ namespace JitsiMeetOutlook
             {
                 groupJitsiMeetControls.Visible = true;
                 groupNewMeeting.Visible = false;
-                Utils.RunInThread(() =>
+                Utils.RunInThread(async () =>
                 {
-                    InitializeRibbonWithCurrentData();
+                    await InitializeRibbonWithCurrentData();
                 });
             }
             else
@@ -47,7 +47,7 @@ namespace JitsiMeetOutlook
         }
 
 
-        private async void InitializeRibbonWithCurrentData()
+        private async System.Threading.Tasks.Task InitializeRibbonWithCurrentData()
         {
             var roomId = Utils.findRoomId(appointmentItem.Body, oldDomain);
             if (roomId != string.Empty)
@@ -110,19 +110,16 @@ namespace JitsiMeetOutlook
             fieldRoomID.Text = roomId;
 
 
-            Word.Document wordDocument = appointmentItem.GetInspector.WordEditor as Word.Document;
+            Document wordDocument = appointmentItem.GetInspector.WordEditor as Document;
             wordDocument.Select();
             var endSel = wordDocument.Application.Selection;
             endSel.Collapse(Word.WdCollapseDirection.wdCollapseEnd);
 
-            var phoneNumbers = await Globals.ThisAddIn.JitsiApiService.getPhoneNumbers(roomId);
-            var pinNumber = await Globals.ThisAddIn.JitsiApiService.getPIN(roomId);
+            var phoneNumbersTask = Globals.ThisAddIn.JitsiApiService.getPhoneNumbers(roomId);
+            var pinNumberTask = Globals.ThisAddIn.JitsiApiService.getPIN(roomId);
             object missing = System.Reflection.Missing.Value;
 
             var link = JitsiUrl.getUrlBase() + roomId;
-
-
-
 
             endSel.InsertAfter("\n");
             endSel.MoveDown(Word.WdUnits.wdLine);
@@ -136,6 +133,8 @@ namespace JitsiMeetOutlook
             endSel.EndKey(Word.WdUnits.wdLine);
             endSel.InsertAfter("\n");
             endSel.MoveDown(Word.WdUnits.wdLine);
+
+            var phoneNumbers = await phoneNumbersTask;
 
             if (phoneNumbers.NumbersEnabled)
             {
@@ -160,6 +159,8 @@ namespace JitsiMeetOutlook
                     endSel.InsertAfter("\n");
                     endSel.MoveDown(Word.WdUnits.wdLine);
                 }
+
+                var pinNumber = await pinNumberTask;
                 endSel.InsertAfter(Globals.ThisAddIn.getElementTranslation("appointmentItem", "textBodyPin") + pinNumber);
                 endSel.EndKey(Word.WdUnits.wdLine);
             }
@@ -192,7 +193,7 @@ namespace JitsiMeetOutlook
             endSel.Collapse(Word.WdCollapseDirection.wdCollapseStart);
         }
 
-        public async void setRoomId(string newRoomId)
+        public async System.Threading.Tasks.Task setRoomId(string newRoomId)
         {
             // Filter room id for illegal characters
             string newRoomIdLegal = JitsiUrl.filterLegalCharacters(newRoomId);
@@ -232,8 +233,9 @@ namespace JitsiMeetOutlook
 
 
             // Update PIN 
-            var newPIN = await Globals.ThisAddIn.JitsiApiService.getPIN(newRoomIdLegal);
-            var oldPIN = await Globals.ThisAddIn.JitsiApiService.getPIN(oldRoomId);
+            var newPINTask = Globals.ThisAddIn.JitsiApiService.getPIN(newRoomIdLegal);
+            var oldPINTask = Globals.ThisAddIn.JitsiApiService.getPIN(oldRoomId);
+            var oldPIN = await oldPINTask;
 
             Find findPINObject = wordDocument.Content.Find;
             findPINObject.ClearFormatting();
@@ -241,15 +243,18 @@ namespace JitsiMeetOutlook
             findPINObject.Replacement.ClearFormatting();
             findPINObject.Format = true;
 
+
+            var newPIN = await newPINTask;
+
             findPINObject.Execute(ref missing, ref missing, ref missing, ref missing, ref missing,
                 ref missing, ref missing, ref missing, ref missing, newPIN,
                 WdReplace.wdReplaceAll, ref missing, ref missing, ref missing, ref missing);
 
         }
 
-        public void randomiseRoomId()
+        public System.Threading.Tasks.Task randomiseRoomId()
         {
-            setRoomId(JitsiUrl.generateRandomId());
+            return setRoomId(JitsiUrl.generateRandomId());
         }
 
         public void toggleMuteOnStart()

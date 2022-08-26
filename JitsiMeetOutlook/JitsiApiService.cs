@@ -35,56 +35,56 @@ namespace JitsiMeetOutlook
             ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
         }
 
-        public async Task<string> getPIN(string roomName)
+        public Task<string> getPIN(string roomName)
         {
             string conferenceMapperRequestUrl = $"{Properties.Settings.Default.conferenceMapperEndpoint}?conference={roomName}@conference.{JitsiUrl.getDomain()}";
 
             try
             {
-                return await PINCache.GetOrCreate(roomName, async () =>
+                return PINCache.GetOrCreate(roomName, async () =>
                 {
                     HttpResponseMessage response = await client.GetAsync(conferenceMapperRequestUrl);
                     response.EnsureSuccessStatusCode();
-                    var responsestring = await response.Content.ReadAsStringAsync();
-                    return JsonSerializer.Deserialize<ConferenceMapperResponse>(responsestring, serializerOptions).IdString;
+                    var responsestring = await response.Content.ReadAsStreamAsync();
+                    return (await JsonSerializer.DeserializeAsync<ConferenceMapperResponse>(responsestring, serializerOptions)).IdString;
                 });
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An Error occured within JitsiOutlook: " + ex.Message + ex.InnerException?.Message + ex.InnerException?.InnerException?.Message + " for " + conferenceMapperRequestUrl);
-                return "ERROR";
+                return Task.FromResult("ERROR");
             }
         }
 
-        public async Task<PhoneNumberListResponse> getPhoneNumbers(string roomName)
+        public Task<PhoneNumberListResponse> getPhoneNumbers(string roomName)
         {
             string phoneNumberListRequestUrl = $"{Properties.Settings.Default.phoneNumberListEndpoint}?conference={roomName}@conference.{JitsiUrl.getDomain()}";
             try
             {
-                return await PhoneNumbersCache.GetOrCreate(roomName, async () =>
+                return PhoneNumbersCache.GetOrCreate(roomName, async () =>
                     {
                         HttpResponseMessage response = await client.GetAsync(phoneNumberListRequestUrl);
                         response.EnsureSuccessStatusCode();
-                        var responsestring = await response.Content.ReadAsStringAsync();
-                        PhoneNumberListResponse phoneNumbers = JsonSerializer.Deserialize<PhoneNumberListResponse>(responsestring, serializerOptions);
+                        var responsestring = await response.Content.ReadAsStreamAsync();
+                        var phoneNumbers = JsonSerializer.DeserializeAsync<PhoneNumberListResponse>(responsestring, serializerOptions);
 
-                        return phoneNumbers;
+                        return await phoneNumbers;
                     });
             }
             catch (Exception ex)
             {
                 MessageBox.Show("An Error occured within JitsiOutlook: " + ex.Message + ex.InnerException?.Message + ex.InnerException?.InnerException?.Message + " for " + phoneNumberListRequestUrl);
-                return new PhoneNumberListResponse { Numbers = new Dictionary<string, List<string>>() };
+                return Task.FromResult(new PhoneNumberListResponse { Numbers = new Dictionary<string, List<string>>() });
             }
 
         }
 
 
-        public async void ScheduleConference(ConferenceSchedulerMessage scheduledConference)
+        public async Task ScheduleConference(ConferenceSchedulerMessage scheduledConference)
         {
             try
             {
-                if (Properties.Settings.Default.conferenceSchedulerEndpoint != String.Empty)
+                if (Properties.Settings.Default.conferenceSchedulerEndpoint != string.Empty)
                 {
                     string json = JsonSerializer.Serialize(scheduledConference, serializerOptions);
                     using (var request = new HttpRequestMessage(HttpMethod.Post, Properties.Settings.Default.conferenceSchedulerEndpoint))

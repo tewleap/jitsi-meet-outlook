@@ -15,6 +15,7 @@ namespace JitsiMeetOutlook
         // Define these so they are not garbarge collected
         private MAPIFolder calendarFolder;
         private Items calendarFolderItems;
+        private string _firstRunMarkerFilePath;
 
         private void ThisAddIn_Startup(object sender, EventArgs e)
         {
@@ -70,10 +71,12 @@ namespace JitsiMeetOutlook
 
         private string firstRunMarkerFilePath()
         {
+            if (_firstRunMarkerFilePath != null) return _firstRunMarkerFilePath;
+
             string shadowCopyLocation = Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
             string firstRunMarkerFile = Path.Combine(shadowCopyLocation, "firstrun.txt");
 
-            return firstRunMarkerFile;
+            return _firstRunMarkerFilePath = firstRunMarkerFile;
         }
 
         private void customSettingsOnFirstRun()
@@ -95,7 +98,7 @@ namespace JitsiMeetOutlook
 
                 if (item.Location == "Jitsi Meet")
                 {
-                    Utils.RunInThread(() =>
+                    Utils.RunInThread(async () =>
                     {
                         string recurrencePattern = null;
                         if (item.IsRecurring)
@@ -107,12 +110,12 @@ namespace JitsiMeetOutlook
                         var scheduledConference = new ConferenceSchedulerMessage
                         {
 
-                            ConferenceName = Utils.findRoomId(item.Body,Properties.Settings.Default.Domain),
+                            ConferenceName = Utils.findRoomId(item.Body, Properties.Settings.Default.Domain),
                             Start = item.StartUTC,
                             End = item.EndUTC,
                             Recurrance = recurrencePattern
                         };
-                        JitsiApiService.ScheduleConference(scheduledConference);
+                        await JitsiApiService.ScheduleConference(scheduledConference);
                     });
                 }
             }

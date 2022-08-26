@@ -19,7 +19,7 @@ namespace JitsiMeetOutlook
                 JsonDocument document = JsonDocument.Parse(jsonString);
                 languageJsonRoot = document.RootElement;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 //Do nothing
             }
@@ -28,14 +28,16 @@ namespace JitsiMeetOutlook
 
         private byte[] findJson(string language)
         {
-            Dictionary<string, byte[]> languages = new Dictionary<string, byte[]>();
-            languages.Add("sv", Resources.languages.sv);
-            languages.Add("en", Resources.languages.en);
-            languages.Add("de", Resources.languages.de);
-            languages.Add("fr", Resources.languages.fr);
-            languages.Add("ru", Resources.languages.ru);
-            languages.Add("es", Resources.languages.es);
-            languages.Add("cz", Resources.languages.cz);
+            var languages = new Dictionary<string, byte[]>(7)
+            {
+                { "sv", Resources.languages.sv },
+                { "en", Resources.languages.en },
+                { "de", Resources.languages.de },
+                { "fr", Resources.languages.fr },
+                { "ru", Resources.languages.ru },
+                { "es", Resources.languages.es },
+                { "cz", Resources.languages.cz }
+            };
 
             if (languages.ContainsKey(language))
             {
