@@ -184,7 +184,7 @@ namespace SettingsInstallerParameters
             }
             else
             {
-                return "phrase";
+                return "string";
             }
 
         }
