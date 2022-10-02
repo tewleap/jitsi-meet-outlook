@@ -266,6 +266,12 @@ namespace JitsiMeetOutlook
             toggleSetting("startWithVideoMuted");
         }
 
+        public void toggleLimitedMeeting()
+        {
+            toggleSetting("localRecording.disable");
+            toggleSetting("screenshotCapture.enabled");
+        }
+
         public void toggleRequireName()
         {
             toggleSetting("requireDisplayName");

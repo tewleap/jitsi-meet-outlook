@@ -47,6 +47,7 @@
             this.buttonStartWithVideoMuted = this.Factory.CreateRibbonToggleButton();
             this.groupNewMeeting = this.Factory.CreateRibbonGroup();
             this.buttonNewJitsiMeeting = this.Factory.CreateRibbonButton();
+            this.buttonLimitedMeeting = this.Factory.CreateRibbonToggleButton();
             this.Appointment.SuspendLayout();
             this.groupJitsiMeetControls.SuspendLayout();
             this.box1.SuspendLayout();
@@ -97,6 +98,7 @@
             // 
             this.box2.Items.Add(this.buttonRandomRoomID);
             this.box2.Items.Add(this.buttonStartWithAudioMuted);
+            this.box2.Items.Add(this.buttonLimitedMeeting);
             this.box2.Name = "box2";
             // 
             // buttonRandomRoomID
@@ -154,6 +156,14 @@
             this.buttonNewJitsiMeeting.ShowImage = true;
             this.buttonNewJitsiMeeting.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonNewJitsiMeeting_Click);
             // 
+            // buttonLimitedMeeting
+            // 
+            this.buttonLimitedMeeting.Label = "Limited Meeting";
+            this.buttonLimitedMeeting.Name = "buttonLimitedMeeting";
+            this.buttonLimitedMeeting.OfficeImageId = "SpeechMicrophone";
+            this.buttonLimitedMeeting.ShowImage = true;
+            this.buttonLimitedMeeting.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonLimitedMeeting_Click);
+            // 
             // AppointmentRibbonGroup
             // 
             this.Name = "AppointmentRibbonGroup";
@@ -189,6 +199,7 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box3;
         internal Microsoft.Office.Tools.Ribbon.RibbonGroup groupNewMeeting;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonNewJitsiMeeting;
+        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton buttonLimitedMeeting;
     }
 
     partial class ThisRibbonCollection

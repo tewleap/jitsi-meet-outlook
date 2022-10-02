@@ -53,5 +53,10 @@ namespace JitsiMeetOutlook
         {
             addJitsiMeeting();
         }
+
+        private void buttonLimitedMeeting_Click(object sender, RibbonControlEventArgs e)
+        {
+            toggleLimitedMeeting();
+        }
     }
 }
