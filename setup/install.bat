@@ -9,8 +9,9 @@ set DOMAIN=domain:port
 set REQNAME=True
 set NOAUDIO=True
 set NOVIDEO=True
+set DISABLE_CUSTOM_ROOM_ID=False
 ::specify the display language (en/fr/ru)
-set LANG=en
+set LANG=sv
 ::======================
 :: Plugin URL and paths
 ::======================
@@ -30,6 +31,6 @@ IF EXIST %target% (
     ECHO No previous installation found.
 )
 ECHO Plugin installation...
-msiexec /i "%origin%" TARGETDIR="%target%" DOMAIN="%DOMAIN%" ROOMID="%roomid%" REQNAME="%reqname%" NOAUDIO="%noaudio%" NOVIDEO="%novideo%" LANG="%lang%" /passive
+msiexec /i "%origin%" TARGETDIR="%target%" DOMAIN="%DOMAIN%" ROOMID="%roomid%" REQNAME="%reqname%" NOAUDIO="%noaudio%" NOVIDEO="%novideo%" LANG="%lang%" DISABLE_CUSTOM_ROOM_ID="%disable_custom_room_id%" /passive
 ECHO Done.
 PAUSE

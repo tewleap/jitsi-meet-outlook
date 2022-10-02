@@ -8,6 +8,12 @@ namespace JitsiMeetOutlook
 
         private void AppointmentRibbonGroup_Load(object sender, RibbonUIEventArgs e)
         {
+            if (Properties.Settings.Default.disableCustomRoomId)
+            {
+                fieldRoomID.Enabled = false;
+                buttonRandomRoomID.Enabled = false;
+            }
+
             initialise();
         }
 

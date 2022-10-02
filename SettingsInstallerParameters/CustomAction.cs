@@ -75,6 +75,9 @@ namespace SettingsInstallerParameters
             session.Log($"Setting random ID generator mode: {getLanguage(session)}");
             navigator.SelectSingleNode(@"/configuration/userSettings/JitsiMeetOutlook.Properties.Settings/setting[@name='randomRoomIdGeneratorMode']/value").SetValue(getRandomRoomIdGeneratorMode(session));
 
+            session.Log($"Setting require name option: {getDisableCustomRoomId(session)}");
+            navigator.SelectSingleNode(@"/configuration/userSettings/JitsiMeetOutlook.Properties.Settings/setting[@name='disableCustomRoomId']/value").SetValue(getDisableCustomRoomId(session));
+
             if (getConferenceMapperEndpoint(session).Length != 0)
             {
                 session.Log($"Setting custom ConferenceMapperEndpoint: {getConferenceMapperEndpoint(session)}");
@@ -155,6 +158,11 @@ namespace SettingsInstallerParameters
         private static string getStartWithVideoMuted(Session session)
         {
             return getBooleanParameter(session, "startWithVideoMuted");
+        }
+
+        private static string getDisableCustomRoomId(Session session)
+        {
+            return getBooleanParameter(session, "disableCustomRoomId");
         }
 
         private static string getLanguage(Session session)

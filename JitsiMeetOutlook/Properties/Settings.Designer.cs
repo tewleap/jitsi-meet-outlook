@@ -166,5 +166,17 @@ namespace JitsiMeetOutlook.Properties {
                 this["conferenceSchedulerEndpointSecret"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("True")]
+        public bool disableCustomRoomId {
+            get {
+                return ((bool)(this["disableCustomRoomId"]));
+            }
+            set {
+                this["disableCustomRoomId"] = value;
+            }
+        }
     }
 }
