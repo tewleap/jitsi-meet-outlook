@@ -13,7 +13,7 @@ namespace JitsiMeetOutlook
             this.buttonRequireDisplayName.Label = Globals.ThisAddIn.getElementTranslation("appointmentRibbonGroup", "buttonRequireDisplayName");
             this.buttonStartWithAudioMuted.Label = Globals.ThisAddIn.getElementTranslation("appointmentRibbonGroup", "buttonStartWithAudioMuted");
             this.buttonStartWithVideoMuted.Label = Globals.ThisAddIn.getElementTranslation("appointmentRibbonGroup", "buttonStartWithVideoMuted");
-
+            this.groupJitsiMeetControls.Label = Globals.ThisAddIn.getElementTranslation("appointmentRibbonGroup", "label");
         }
     }
 

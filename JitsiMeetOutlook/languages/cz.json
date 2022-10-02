@@ -1,6 +1,7 @@
 {
   "calendarRibbonButton": {
-    "buttonNewJitsiMeeting": "Nová schůzka"
+    "buttonNewJitsiMeeting": "Nová schůzka",
+    "label": "Jitsi"
   },
 
   "appointmentItem": {
@@ -13,7 +14,8 @@
     "buttonRandomRoomID": "Náhodné ID",
     "buttonRequireDisplayName": "Vyžadovat jméno",
     "buttonStartWithAudioMuted": "Začít se ztišeným zvukem",
-    "buttonStartWithVideoMuted": "Začít s vypnutou kamerou"
+    "buttonStartWithVideoMuted": "Začít s vypnutou kamerou",
+    "label": "Jitsi"
   },
 
   "settings": {

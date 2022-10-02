@@ -11,10 +11,12 @@
 		"buttonStartWithAudioMuted": "Tyst vid start",
 		"buttonStartWithVideoMuted": "Ingen video vid start",
 		"fieldRoomID": "Id:",
-		"fieldRoomIDSuperTip": "Längre namn är säkrare."
+		"fieldRoomIDSuperTip": "Längre namn är säkrare.",
+		"label": "Jitsi"
 	},
 	"calendarRibbonButton": {
-		"buttonNewJitsiMeeting": "Nytt Jitsi-möte"
+		"buttonNewJitsiMeeting": "Nytt Jitsi-möte",
+		"label": "Jitsi"
 	},
 	"roomNameGenerator": {
 		"adjective": [

@@ -7,6 +7,7 @@ namespace JitsiMeetOutlook
         private void setLanguage()
         {
             this.buttonNewJitsiMeeting.Label = Globals.ThisAddIn.getElementTranslation("calendarRibbonButton", "buttonNewJitsiMeeting");
+            this.JitsiMeet.Label = Globals.ThisAddIn.getElementTranslation("calendarRibbonButton", "label");
         }
     }
 }

@@ -1,20 +1,22 @@
 {
-    "calendarRibbonButton": {
-      "buttonNewJitsiMeeting": "Nueva reunión en Jitsi"
-    },
+  "calendarRibbonButton": {
+    "buttonNewJitsiMeeting": "Nueva reunión en Jitsi",
+    "label": "Jitsi"
+  },
   
     "appointmentItem": {
       "textBodyMessage": "Únete a la reunión: "
     },
-  
-    "appointmentRibbonGroup": {
-      "fieldRoomID": "ID:",
-      "fieldRoomIDSuperTip": "Nombre largos son más seguros.",
-      "buttonRandomRoomID": "ID aleatoria",
-      "buttonRequireDisplayName": "Nombre requerido",
-      "buttonStartWithAudioMuted": "Silenciar al empezar",
-      "buttonStartWithVideoMuted": "Sin video al empezar"
-    },
+
+  "appointmentRibbonGroup": {
+    "fieldRoomID": "ID:",
+    "fieldRoomIDSuperTip": "Nombre largos son más seguros.",
+    "buttonRandomRoomID": "ID aleatoria",
+    "buttonRequireDisplayName": "Nombre requerido",
+    "buttonStartWithAudioMuted": "Silenciar al empezar",
+    "buttonStartWithVideoMuted": "Sin video al empezar",
+    "label": "Jitsi"
+  },
   
     "settings": {
       "groupBoxDomain": "Domain",

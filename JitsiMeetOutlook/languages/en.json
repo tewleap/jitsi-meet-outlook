@@ -1,6 +1,7 @@
 {
   "calendarRibbonButton": {
-    "buttonNewJitsiMeeting": "New Jitsi Meeting"
+    "buttonNewJitsiMeeting": "New Jitsi Meeting",
+    "label": "Jitsi"
   },
 
   "appointmentItem": {
@@ -16,7 +17,8 @@
     "buttonRandomRoomID": "Random ID",
     "buttonRequireDisplayName": "Require Name",
     "buttonStartWithAudioMuted": "Mute on Start",
-    "buttonStartWithVideoMuted": "No Video on Start"
+    "buttonStartWithVideoMuted": "No Video on Start",
+    "label": "Jitsi"
   },
 
   "settings": {
