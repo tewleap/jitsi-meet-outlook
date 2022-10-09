@@ -116,7 +116,7 @@ namespace JitsiMeetOutlook
             var endSel = wordDocument.Application.Selection;
             endSel.Collapse(Word.WdCollapseDirection.wdCollapseEnd);
 
-            var phoneNumbersTask = Task.FromResult(new PhoneNumberListResponse { NumbersEnabled = false }); //temporarily removed Globals.ThisAddIn.JitsiApiService.getPhoneNumbers(roomId);
+            var phoneNumbersTask = Properties.Settings.Default.enablePhoneNumbers ? Globals.ThisAddIn.JitsiApiService.getPhoneNumbers(roomId) : Task.FromResult(new PhoneNumberListResponse { NumbersEnabled = false });
             var pinNumberTask = Globals.ThisAddIn.JitsiApiService.getPIN(roomId);
             object missing = System.Reflection.Missing.Value;
 
