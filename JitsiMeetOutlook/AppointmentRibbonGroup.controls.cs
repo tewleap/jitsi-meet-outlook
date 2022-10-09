@@ -138,7 +138,7 @@ namespace JitsiMeetOutlook
 
             var phoneNumbers = await phoneNumbersTask;
 
-            if (!phoneNumbers.NumbersEnabled)
+            if (phoneNumbers.NumbersEnabled)
             {
                 // Add Phone Number Text if they are enabled
                 endSel.InsertAfter(Globals.ThisAddIn.getElementTranslation("appointmentItem", "textBodyMessagePhone"));
