@@ -10,8 +10,8 @@ namespace JitsiMeetOutlook
         {
             if (Properties.Settings.Default.disableCustomRoomId)
             {
-                fieldRoomID.Enabled = false;
-                buttonRandomRoomID.Enabled = false;
+                fieldRoomID.Visible = false;
+                buttonRandomRoomID.Visible = false;
             }
 
             initialise();
