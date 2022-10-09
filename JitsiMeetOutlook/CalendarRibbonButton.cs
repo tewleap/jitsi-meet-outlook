@@ -9,7 +9,7 @@ namespace JitsiMeetOutlook
     {
         private void CalendarRibbonButton_Load(object sender, RibbonUIEventArgs e)
         {
-            if (!string.IsNullOrEmpty(Properties.Settings.Default.serviceName))
+            if (!string.IsNullOrWhiteSpace(Properties.Settings.Default.serviceName))
                 this.JitsiMeet.Label = Properties.Settings.Default.serviceName;
             setLanguage();
         }
@@ -30,7 +30,7 @@ namespace JitsiMeetOutlook
 
                 // Appointment details
                 newAppointment.MeetingStatus = Outlook.OlMeetingStatus.olMeeting;
-                newAppointment.Location = !string.IsNullOrEmpty(Properties.Settings.Default.serviceName) ? Properties.Settings.Default.serviceName : "Jitsi Meet";
+                newAppointment.Location = !string.IsNullOrWhiteSpace(Properties.Settings.Default.serviceName) ? Properties.Settings.Default.serviceName : "Jitsi Meet";
 
                 // Set appointment date if selected in calendar
                 if (view.ViewType == Outlook.OlViewType.olCalendarView)

@@ -31,7 +31,7 @@ namespace JitsiMeetOutlook
 
             if (appointmentItem.Location == Properties.Settings.Default.serviceName || appointmentItem.Location == "Jitsi Meet")
             {
-                if (!string.IsNullOrEmpty(Properties.Settings.Default.serviceName))
+                if (!string.IsNullOrWhiteSpace(Properties.Settings.Default.serviceName))
                     groupJitsiMeetControls.Label = Properties.Settings.Default.serviceName;
                 groupJitsiMeetControls.Visible = true;
                 groupNewMeeting.Visible = false;
@@ -130,7 +130,7 @@ namespace JitsiMeetOutlook
             endSel.InsertAfter(".........................................................................................................................................\n");
             endSel.MoveDown(Word.WdUnits.wdLine);
             endSel.Font.Size = 16;
-            if (!string.IsNullOrEmpty(Properties.Settings.Default.serviceName))
+            if (!string.IsNullOrWhiteSpace(Properties.Settings.Default.serviceName))
             {
                 endSel.InsertAfter(Properties.Settings.Default.serviceName);
                 endSel.InsertAfter("\n");
@@ -284,7 +284,7 @@ namespace JitsiMeetOutlook
 
         private void addJitsiMeeting()
         {
-            appointmentItem.Location = !string.IsNullOrEmpty(Properties.Settings.Default.serviceName) ? Properties.Settings.Default.serviceName : "Jitsi Meet";
+            appointmentItem.Location = !string.IsNullOrWhiteSpace(Properties.Settings.Default.serviceName) ? Properties.Settings.Default.serviceName : "Jitsi Meet";
             initialise();
 
         }

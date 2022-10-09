@@ -171,7 +171,7 @@ namespace JitsiMeetOutlook
             byDay.Add(((dowMask & OlDaysOfWeek.olFriday) != 0) ? "FR" : "");
             byDay.Add(((dowMask & OlDaysOfWeek.olSaturday) != 0) ? "SA" : "");
             byDay.Add(((dowMask & OlDaysOfWeek.olSunday) != 0) ? "SU" : "");
-            byDay = byDay.Where(s => !string.IsNullOrEmpty(s)).ToList();
+            byDay = byDay.Where(s => !string.IsNullOrWhiteSpace(s)).ToList();
             return byDay;
         }
         private static OlDaysOfWeek getDOWmask(Dictionary<String, String> ruleBook)
