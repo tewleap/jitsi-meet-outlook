@@ -1,7 +1,7 @@
 {
 	"appointmentItem": {
 		"textBodyDisclaimer": "\n\r",
-		"textBodyMessage": "\nGå med i mötet:",
+		"textBodyMessage": "\nGå med i mötet: ",
 		"textBodyMessagePhone": "Slå in nummer:\n",
 		"textBodyPin": "\nKonferensnummer (PIN):"
 	},

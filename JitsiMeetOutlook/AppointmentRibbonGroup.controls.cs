@@ -124,13 +124,13 @@ namespace JitsiMeetOutlook
             endSel.MoveDown(Word.WdUnits.wdLine);
             endSel.InsertAfter("\n");
             endSel.MoveDown(Word.WdUnits.wdLine);
-            endSel.InsertAfter("----------------------------------------------------------------------------\n");
+            endSel.InsertAfter(".........................................................................................................................................\n");
             endSel.MoveDown(Word.WdUnits.wdLine);
-            endSel.Font.Size = 24;
+            endSel.Font.Size = 16;
             endSel.InsertAfter(Globals.ThisAddIn.getElementTranslation("appointmentItem", "textBodyMessage"));
             endSel.EndKey(Word.WdUnits.wdLine);
             var hyperLink = wordDocument.Hyperlinks.Add(endSel.Range, link, ref missing, ref missing, link, ref missing);
-            hyperLink.Range.Font.Size = 24;
+            hyperLink.Range.Font.Size = 16;
             endSel.EndKey(Word.WdUnits.wdLine);
             endSel.InsertAfter("\n");
             endSel.MoveDown(Word.WdUnits.wdLine);
