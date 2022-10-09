@@ -120,23 +120,24 @@ namespace JitsiMeetOutlook
             object missing = System.Reflection.Missing.Value;
 
             var link = JitsiUrl.getUrlBase() + roomId;
-
             endSel.InsertAfter("\n");
             endSel.MoveDown(Word.WdUnits.wdLine);
             endSel.InsertAfter("\n");
             endSel.MoveDown(Word.WdUnits.wdLine);
-            endSel.InsertAfter("\n");
+            endSel.InsertAfter(".........................................................................................................................................\n");
             endSel.MoveDown(Word.WdUnits.wdLine);
+            endSel.Font.Size = 16;
             endSel.InsertAfter(Globals.ThisAddIn.getElementTranslation("appointmentItem", "textBodyMessage"));
             endSel.EndKey(Word.WdUnits.wdLine);
-            wordDocument.Hyperlinks.Add(endSel.Range, link, ref missing, ref missing, link, ref missing);
+            var hyperLink = wordDocument.Hyperlinks.Add(endSel.Range, link, ref missing, ref missing, link, ref missing);
+            hyperLink.Range.Font.Size = 16;
             endSel.EndKey(Word.WdUnits.wdLine);
             endSel.InsertAfter("\n");
             endSel.MoveDown(Word.WdUnits.wdLine);
 
             var phoneNumbers = await phoneNumbersTask;
 
-            if (phoneNumbers.NumbersEnabled)
+            if (!phoneNumbers.NumbersEnabled)
             {
                 // Add Phone Number Text if they are enabled
                 endSel.InsertAfter(Globals.ThisAddIn.getElementTranslation("appointmentItem", "textBodyMessagePhone"));

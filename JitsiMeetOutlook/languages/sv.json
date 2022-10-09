@@ -1,15 +1,15 @@
 {
 	"appointmentItem": {
 		"textBodyDisclaimer": "\n\r",
-		"textBodyMessage": "\n\n\nJitsi-möte\n\nGå med i mötet:",
+		"textBodyMessage": "\nGå med i mötet: ",
 		"textBodyMessagePhone": "Slå in nummer:\n",
 		"textBodyPin": "\nKonferensnummer (PIN):"
 	},
 	"appointmentRibbonGroup": {
 		"buttonRandomRoomID": "Slumpmässigt ID",
 		"buttonRequireDisplayName": "Kräv namn",
-		"buttonStartWithAudioMuted": "Tyst vid start",
-		"buttonStartWithVideoMuted": "Ingen video vid start",
+		"buttonStartWithAudioMuted": "Mic av vid start",
+		"buttonStartWithVideoMuted": "Video av vid start",
 		"fieldRoomID": "Id:",
 		"fieldRoomIDSuperTip": "Längre namn är säkrare."
 	},
