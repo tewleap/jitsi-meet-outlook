@@ -190,5 +190,17 @@ namespace JitsiMeetOutlook.Properties {
                 this["enablePhoneNumbers"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string serviceName {
+            get {
+                return ((string)(this["serviceName"]));
+            }
+            set {
+                this["serviceName"] = value;
+            }
+        }
     }
 }
