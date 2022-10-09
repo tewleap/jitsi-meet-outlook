@@ -178,5 +178,17 @@ namespace JitsiMeetOutlook.Properties {
                 this["disableCustomRoomId"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("False")]
+        public bool enablePhoneNumbers {
+            get {
+                return ((bool)(this["enablePhoneNumbers"]));
+            }
+            set {
+                this["enablePhoneNumbers"] = value;
+            }
+        }
     }
 }

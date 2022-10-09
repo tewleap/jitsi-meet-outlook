@@ -7,6 +7,7 @@ using System.Text;
 using JitsiMeetOutlook.Entities;
 using Microsoft.Office.Interop.Word;
 using System.Collections.Generic;
+using Task = System.Threading.Tasks.Task;
 
 namespace JitsiMeetOutlook
 {
@@ -115,7 +116,7 @@ namespace JitsiMeetOutlook
             var endSel = wordDocument.Application.Selection;
             endSel.Collapse(Word.WdCollapseDirection.wdCollapseEnd);
 
-            var phoneNumbersTask = Globals.ThisAddIn.JitsiApiService.getPhoneNumbers(roomId);
+            var phoneNumbersTask = Properties.Settings.Default.enablePhoneNumbers ? Globals.ThisAddIn.JitsiApiService.getPhoneNumbers(roomId) : Task.FromResult(new PhoneNumberListResponse { NumbersEnabled = false });
             var pinNumberTask = Globals.ThisAddIn.JitsiApiService.getPIN(roomId);
             object missing = System.Reflection.Missing.Value;
 

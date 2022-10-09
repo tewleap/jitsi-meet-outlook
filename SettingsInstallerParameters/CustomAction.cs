@@ -78,6 +78,9 @@ namespace SettingsInstallerParameters
             session.Log($"Setting require name option: {getDisableCustomRoomId(session)}");
             navigator.SelectSingleNode(@"/configuration/userSettings/JitsiMeetOutlook.Properties.Settings/setting[@name='disableCustomRoomId']/value").SetValue(getDisableCustomRoomId(session));
 
+            session.Log($"Setting require name option: {getEnablePhoneNumbers(session)}");
+            navigator.SelectSingleNode(@"/configuration/userSettings/JitsiMeetOutlook.Properties.Settings/setting[@name='enablePhoneNumbers']/value").SetValue(getEnablePhoneNumbers(session));
+
             if (getConferenceMapperEndpoint(session).Length != 0)
             {
                 session.Log($"Setting custom ConferenceMapperEndpoint: {getConferenceMapperEndpoint(session)}");
@@ -163,6 +166,11 @@ namespace SettingsInstallerParameters
         private static string getDisableCustomRoomId(Session session)
         {
             return getBooleanParameter(session, "disableCustomRoomId");
+        }
+
+        private static string getEnablePhoneNumbers(Session session)
+        {
+            return getBooleanParameter(session, "enablePhoneNumbers");
         }
 
         private static string getLanguage(Session session)
