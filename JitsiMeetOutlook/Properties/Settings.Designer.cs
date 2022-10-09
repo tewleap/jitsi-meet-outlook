@@ -202,5 +202,17 @@ namespace JitsiMeetOutlook.Properties {
                 this["serviceName"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("https://www.google.se/")]
+        public string supportUrl {
+            get {
+                return ((string)(this["supportUrl"]));
+            }
+            set {
+                this["supportUrl"] = value;
+            }
+        }
     }
 }

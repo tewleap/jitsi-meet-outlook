@@ -7,7 +7,8 @@
     "textBodyMessage": "\r\nДжитси-Встреча \r\n\nПрисоединяйтесь к конференции: ",
     "textBodyMessagePhone": "\n\rНомер телефона: ",
     "textBodyPin": "\r\nномер конференции: ",
-    "textBodyDisclaimer": "\n\r"
+    "textBodyDisclaimer": "\n\r",
+    "textBodySupport": "How do I join the meeting?"
   },
 
   "appointmentRibbonGroup": {

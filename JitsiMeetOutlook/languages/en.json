@@ -7,7 +7,8 @@
     "textBodyMessage": "\nJoin the meeting: ",
     "textBodyMessagePhone": "Dial in numbers:\n",
     "textBodyPin": "\nConference number (PIN): ",
-    "textBodyDisclaimer": "DISCLAIMER: Example\n\r"
+    "textBodyDisclaimer": "DISCLAIMER: Example\n\r",
+    "textBodySupport": "How do I join the meeting?"
   },
 
   "appointmentRibbonGroup": {

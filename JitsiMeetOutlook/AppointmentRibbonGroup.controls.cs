@@ -176,6 +176,14 @@ namespace JitsiMeetOutlook
             }
             endSel.InsertAfter("\n");
             endSel.MoveDown(Word.WdUnits.wdLine);
+
+            if (!string.IsNullOrWhiteSpace(Properties.Settings.Default.supportUrl))
+            {
+                wordDocument.Hyperlinks.Add(endSel.Range, Properties.Settings.Default.supportUrl, ref missing, ref missing, Globals.ThisAddIn.getElementTranslation("appointmentItem", "textBodySupport"), ref missing);
+                //endSel.InsertAfter();
+                endSel.MoveDown(Word.WdUnits.wdLine);
+            }
+
             endSel.InsertAfter("\n");
             endSel.MoveDown(Word.WdUnits.wdLine);
 

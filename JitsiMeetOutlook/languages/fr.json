@@ -7,7 +7,8 @@
     "textBodyMessage": "\r\nJitsi-Meeting \r\n\nRejoignez la conférence : ",
     "textBodyMessagePhone": "\n\rNuméro de téléphone : ",
     "textBodyPin": "\r\nNuméro de conférence: ",
-    "textBodyDisclaimer": "\n\r"
+    "textBodyDisclaimer": "\n\r",
+    "textBodySupport": "How do I join the meeting?"
   },
 
   "appointmentRibbonGroup": {

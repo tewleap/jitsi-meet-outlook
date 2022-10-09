@@ -84,6 +84,9 @@ namespace SettingsInstallerParameters
             session.Log($"Setting require name option: {getServiceName(session)}");
             navigator.SelectSingleNode(@"/configuration/userSettings/JitsiMeetOutlook.Properties.Settings/setting[@name='serviceName']/value").SetValue(getServiceName(session));
 
+            session.Log($"Setting require name option: {getSupportUrl(session)}");
+            navigator.SelectSingleNode(@"/configuration/userSettings/JitsiMeetOutlook.Properties.Settings/setting[@name='supportUrl']/value").SetValue(getSupportUrl(session));
+
             if (getConferenceMapperEndpoint(session).Length != 0)
             {
                 session.Log($"Setting custom ConferenceMapperEndpoint: {getConferenceMapperEndpoint(session)}");
@@ -154,6 +157,11 @@ namespace SettingsInstallerParameters
         private static string getServiceName(Session session)
         {
             return session.CustomActionData["serviceName"];
+        }
+
+        private static string getSupportUrl(Session session)
+        {
+            return session.CustomActionData["supportUrl"];
         }
 
         private static string getRequireDisplayName(Session session)

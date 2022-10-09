@@ -47,5 +47,8 @@
     <Setting Name="serviceName" Type="System.String" Scope="User">
       <Value Profile="(Default)" />
     </Setting>
+    <Setting Name="supportUrl" Type="System.String" Scope="User">
+      <Value Profile="(Default)">https://www.google.se/</Value>
+    </Setting>
   </Settings>
 </SettingsFile>

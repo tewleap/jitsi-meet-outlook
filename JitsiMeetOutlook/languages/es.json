@@ -2,10 +2,11 @@
     "calendarRibbonButton": {
       "buttonNewJitsiMeeting": "Nueva reunión en Jitsi"
     },
-  
-    "appointmentItem": {
-      "textBodyMessage": "Únete a la reunión: "
-    },
+
+  "appointmentItem": {
+    "textBodyMessage": "Únete a la reunión: ",
+    "textBodySupport": "How do I join the meeting?"
+  },
   
     "appointmentRibbonGroup": {
       "fieldRoomID": "ID:",
