@@ -8,8 +8,8 @@
 	"appointmentRibbonGroup": {
 		"buttonRandomRoomID": "Slumpmässigt ID",
 		"buttonRequireDisplayName": "Kräv namn",
-		"buttonStartWithAudioMuted": "Tyst vid start",
-		"buttonStartWithVideoMuted": "Ingen video vid start",
+		"buttonStartWithAudioMuted": "Mic av vid start",
+		"buttonStartWithVideoMuted": "Video av vid start",
 		"fieldRoomID": "Id:",
 		"fieldRoomIDSuperTip": "Längre namn är säkrare."
 	},
