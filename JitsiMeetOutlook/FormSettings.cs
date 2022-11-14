@@ -167,6 +167,17 @@ namespace JitsiMeetOutlook
                 Properties.Settings.Default.startWithVideoMuted = false;
             }
 
+            if (checkedListBoxToolbar.CheckedItems.Count > 0)
+            {
+                if (Properties.Settings.Default.toolBarOptions == null)
+                {
+                    Properties.Settings.Default.toolBarOptions = new System.Collections.Specialized.StringCollection();
+                }
+
+                foreach (var item in checkedListBoxToolbar.CheckedItems)
+                        Properties.Settings.Default.toolBarOptions.Add(item.ToString());
+            }
+
             // Set language
             string languageSelection = (string)comboBoxLanguage.SelectedItem;
             Properties.Settings.Default.language = languageDropDown.FirstOrDefault(x => x.Value == languageSelection).Key;
@@ -283,6 +294,21 @@ namespace JitsiMeetOutlook
         }
 
         private void comboBoxLanguage_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tabPageAdvanced_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            Console.WriteLine(sender);
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
         {
 
         }

@@ -61,10 +61,13 @@
             this.tabControlSettings = new System.Windows.Forms.TabControl();
             this.tabPageDomain = new System.Windows.Forms.TabPage();
             this.tabPageRoomId = new System.Windows.Forms.TabPage();
-            this.tabPageMeetingOptions = new System.Windows.Forms.TabPage();
-            this.tabPageLanguage = new System.Windows.Forms.TabPage();
             this.groupBoxRandomGeneratorMode = new System.Windows.Forms.GroupBox();
             this.comboBoxRandomGeneratorMode = new System.Windows.Forms.ComboBox();
+            this.tabPageMeetingOptions = new System.Windows.Forms.TabPage();
+            this.tabPageLanguage = new System.Windows.Forms.TabPage();
+            this.tabPageAdvanced = new System.Windows.Forms.TabPage();
+            this.checkedListBoxToolbar = new System.Windows.Forms.CheckedListBox();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.menuStrip1.SuspendLayout();
             this.groupBoxDomain.SuspendLayout();
             this.groupBoxToggleDefaults.SuspendLayout();
@@ -76,9 +79,11 @@
             this.tabControlSettings.SuspendLayout();
             this.tabPageDomain.SuspendLayout();
             this.tabPageRoomId.SuspendLayout();
+            this.groupBoxRandomGeneratorMode.SuspendLayout();
             this.tabPageMeetingOptions.SuspendLayout();
             this.tabPageLanguage.SuspendLayout();
-            this.groupBoxRandomGeneratorMode.SuspendLayout();
+            this.tabPageAdvanced.SuspendLayout();
+            this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -408,6 +413,7 @@
             this.tabControlSettings.Controls.Add(this.tabPageRoomId);
             this.tabControlSettings.Controls.Add(this.tabPageMeetingOptions);
             this.tabControlSettings.Controls.Add(this.tabPageLanguage);
+            this.tabControlSettings.Controls.Add(this.tabPageAdvanced);
             this.tabControlSettings.Location = new System.Drawing.Point(12, 27);
             this.tabControlSettings.Name = "tabControlSettings";
             this.tabControlSettings.SelectedIndex = 0;
@@ -437,26 +443,6 @@
             this.tabPageRoomId.Text = "Room ID";
             this.tabPageRoomId.UseVisualStyleBackColor = true;
             // 
-            // tabPageMeetingOptions
-            // 
-            this.tabPageMeetingOptions.Controls.Add(this.groupBoxToggleDefaults);
-            this.tabPageMeetingOptions.Location = new System.Drawing.Point(4, 22);
-            this.tabPageMeetingOptions.Name = "tabPageMeetingOptions";
-            this.tabPageMeetingOptions.Size = new System.Drawing.Size(320, 168);
-            this.tabPageMeetingOptions.TabIndex = 2;
-            this.tabPageMeetingOptions.Text = "Meeting Options";
-            this.tabPageMeetingOptions.UseVisualStyleBackColor = true;
-            // 
-            // tabPageLanguage
-            // 
-            this.tabPageLanguage.Controls.Add(this.groupBoxLanguage);
-            this.tabPageLanguage.Location = new System.Drawing.Point(4, 22);
-            this.tabPageLanguage.Name = "tabPageLanguage";
-            this.tabPageLanguage.Size = new System.Drawing.Size(320, 168);
-            this.tabPageLanguage.TabIndex = 3;
-            this.tabPageLanguage.Text = "Language";
-            this.tabPageLanguage.UseVisualStyleBackColor = true;
-            // 
             // groupBoxRandomGeneratorMode
             // 
             this.groupBoxRandomGeneratorMode.Controls.Add(this.comboBoxRandomGeneratorMode);
@@ -478,6 +464,95 @@
             this.comboBoxRandomGeneratorMode.Name = "comboBoxRandomGeneratorMode";
             this.comboBoxRandomGeneratorMode.Size = new System.Drawing.Size(287, 21);
             this.comboBoxRandomGeneratorMode.TabIndex = 0;
+            // 
+            // tabPageMeetingOptions
+            // 
+            this.tabPageMeetingOptions.Controls.Add(this.groupBoxToggleDefaults);
+            this.tabPageMeetingOptions.Location = new System.Drawing.Point(4, 22);
+            this.tabPageMeetingOptions.Name = "tabPageMeetingOptions";
+            this.tabPageMeetingOptions.Size = new System.Drawing.Size(320, 168);
+            this.tabPageMeetingOptions.TabIndex = 2;
+            this.tabPageMeetingOptions.Text = "Meeting Options";
+            this.tabPageMeetingOptions.UseVisualStyleBackColor = true;
+            // 
+            // tabPageLanguage
+            // 
+            this.tabPageLanguage.Controls.Add(this.groupBoxLanguage);
+            this.tabPageLanguage.Location = new System.Drawing.Point(4, 22);
+            this.tabPageLanguage.Name = "tabPageLanguage";
+            this.tabPageLanguage.Size = new System.Drawing.Size(320, 168);
+            this.tabPageLanguage.TabIndex = 3;
+            this.tabPageLanguage.Text = "Language";
+            this.tabPageLanguage.UseVisualStyleBackColor = true;
+            // 
+            // tabPageAdvanced
+            // 
+            this.tabPageAdvanced.Controls.Add(this.groupBox1);
+            this.tabPageAdvanced.Location = new System.Drawing.Point(4, 22);
+            this.tabPageAdvanced.Name = "tabPageAdvanced";
+            this.tabPageAdvanced.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPageAdvanced.Size = new System.Drawing.Size(320, 168);
+            this.tabPageAdvanced.TabIndex = 4;
+            this.tabPageAdvanced.Text = "Advanced";
+            this.tabPageAdvanced.UseVisualStyleBackColor = true;
+            this.tabPageAdvanced.Click += new System.EventHandler(this.tabPageAdvanced_Click);
+            // 
+            // checkedListBoxToolbar
+            // 
+            this.checkedListBoxToolbar.CheckOnClick = true;
+            this.checkedListBoxToolbar.FormattingEnabled = true;
+            this.checkedListBoxToolbar.Items.AddRange(new object[] {
+            "Camera",
+            "Chat",
+            "Closed Caption",
+            "Dock IFrame",
+            "Download App",
+            "Embed Meeting",
+            "Etherpad",
+            "Filmstrip",
+            "Help",
+            "Highlight Moments (when Recording)",
+            "Invite people",
+            "Leave Feedback",
+            "Leave Meeting",
+            "Live Streaming",
+            "Microphone",
+            "Participants Pane",
+            "Performance settings",
+            "Profile",
+            "Raise Hand",
+            "Recording",
+            "Screenshare",
+            "Security Options",
+            "Select Background",
+            "Settings",
+            "Share Audio",
+            "Share Video",
+            "Speaker Stats",
+            "Toggle Camera",
+            "Toggle Noise Suppression",
+            "Toggle Tile View",
+            "Undock IFrame",
+            "View Full Screen",
+            "View Shortcuts"});
+            this.checkedListBoxToolbar.Location = new System.Drawing.Point(1, 14);
+            this.checkedListBoxToolbar.MultiColumn = true;
+            this.checkedListBoxToolbar.Name = "checkedListBoxToolbar";
+            this.checkedListBoxToolbar.Size = new System.Drawing.Size(320, 154);
+            this.checkedListBoxToolbar.Sorted = true;
+            this.checkedListBoxToolbar.TabIndex = 0;
+            this.checkedListBoxToolbar.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.checkedListBoxToolbar);
+            this.groupBox1.Location = new System.Drawing.Point(-4, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(324, 168);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Toolbar settings";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // FormSettings
             // 
@@ -518,9 +593,11 @@
             this.tabControlSettings.ResumeLayout(false);
             this.tabPageDomain.ResumeLayout(false);
             this.tabPageRoomId.ResumeLayout(false);
+            this.groupBoxRandomGeneratorMode.ResumeLayout(false);
             this.tabPageMeetingOptions.ResumeLayout(false);
             this.tabPageLanguage.ResumeLayout(false);
-            this.groupBoxRandomGeneratorMode.ResumeLayout(false);
+            this.tabPageAdvanced.ResumeLayout(false);
+            this.groupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -565,5 +642,8 @@
         private System.Windows.Forms.TabPage tabPageLanguage;
         private System.Windows.Forms.GroupBox groupBoxRandomGeneratorMode;
         private System.Windows.Forms.ComboBox comboBoxRandomGeneratorMode;
+        private System.Windows.Forms.TabPage tabPageAdvanced;
+        private System.Windows.Forms.CheckedListBox checkedListBoxToolbar;
+        private System.Windows.Forms.GroupBox groupBox1;
     }
 }
