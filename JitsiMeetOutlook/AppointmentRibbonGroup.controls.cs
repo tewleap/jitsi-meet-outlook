@@ -132,6 +132,7 @@ namespace JitsiMeetOutlook
             var hyperLink = wordDocument.Hyperlinks.Add(endSel.Range, link, ref missing, ref missing, link, ref missing);
             hyperLink.Range.Font.Size = 16;
             hyperLink.Application.Options.CtrlClickHyperlinkToOpen = false;
+            hyperLink.TextToDisplay = "Join the meeting";
 
             endSel.EndKey(Word.WdUnits.wdLine);
             endSel.InsertAfter("\n");
@@ -235,9 +236,11 @@ namespace JitsiMeetOutlook
             {
                 if (wLinks[i].Address.Contains(oldDomain))
                 {
-                    var urlNew = wLinks[i].TextToDisplay.Replace(Utils.findRoomId(appointmentItem.Body, oldDomain), newRoomIdLegal);
-                    wLinks[i].Address = fixUrl(urlNew);
-                    wLinks[i].TextToDisplay = fixUrl(urlNew);
+                    var hyperlink = wLinks[i];
+                    var completeUrl = $"{hyperlink.Address}#{hyperlink.SubAddress}";
+                    var urlNew = completeUrl.Replace(Utils.findRoomId(appointmentItem.Body, oldDomain), newRoomIdLegal);
+                    hyperlink.Address = fixUrl(urlNew);
+                    //hyperlink.TextToDisplay = fixUrl(urlNew);
                 }
             }
 
@@ -300,7 +303,8 @@ namespace JitsiMeetOutlook
             {
                 if (wLinks[i].Address.Contains(oldDomain))
                 {
-                    var urlMatch = wLinks[i].TextToDisplay;
+                    var hyperlink = wLinks[i];
+                    var urlMatch = $"{hyperlink.Address}#{hyperlink.SubAddress}";
                     string urlNew;
                     if (Utils.SettingIsActive(urlMatch, setting))
                     {
@@ -318,8 +322,8 @@ namespace JitsiMeetOutlook
                             urlNew = urlMatch + "#config." + setting + "=true";
                         }
                     }
-                    wLinks[i].Address = fixUrl(urlNew);
-                    wLinks[i].TextToDisplay = fixUrl(urlNew);
+                    hyperlink.Address = fixUrl(urlNew);
+                    //hyperlink.TextToDisplay = fixUrl(urlNew);
                 }
             }
         }
