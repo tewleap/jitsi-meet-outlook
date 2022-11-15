@@ -43,7 +43,6 @@
             this.buttonRandomRoomID = this.Factory.CreateRibbonButton();
             this.buttonStartWithAudioMuted = this.Factory.CreateRibbonToggleButton();
             this.box3 = this.Factory.CreateRibbonBox();
-            this.buttonRequireDisplayName = this.Factory.CreateRibbonToggleButton();
             this.buttonStartWithVideoMuted = this.Factory.CreateRibbonToggleButton();
             this.groupNewMeeting = this.Factory.CreateRibbonGroup();
             this.buttonNewJitsiMeeting = this.Factory.CreateRibbonButton();
@@ -117,17 +116,8 @@
             // 
             // box3
             // 
-            this.box3.Items.Add(this.buttonRequireDisplayName);
             this.box3.Items.Add(this.buttonStartWithVideoMuted);
             this.box3.Name = "box3";
-            // 
-            // buttonRequireDisplayName
-            // 
-            this.buttonRequireDisplayName.Label = "Require Name";
-            this.buttonRequireDisplayName.Name = "buttonRequireDisplayName";
-            this.buttonRequireDisplayName.OfficeImageId = "FormControlEditBox";
-            this.buttonRequireDisplayName.ShowImage = true;
-            this.buttonRequireDisplayName.Click += new Microsoft.Office.Tools.Ribbon.RibbonControlEventHandler(this.buttonRequireDisplayName_Click);
             // 
             // buttonStartWithVideoMuted
             // 
@@ -183,7 +173,6 @@
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton buttonStartWithAudioMuted;
         internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton buttonStartWithVideoMuted;
         internal Microsoft.Office.Tools.Ribbon.RibbonButton buttonRandomRoomID;
-        internal Microsoft.Office.Tools.Ribbon.RibbonToggleButton buttonRequireDisplayName;
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box1;
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box2;
         internal Microsoft.Office.Tools.Ribbon.RibbonBox box3;

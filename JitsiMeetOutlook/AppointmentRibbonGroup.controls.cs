@@ -62,10 +62,6 @@ namespace JitsiMeetOutlook
                 }
 
                 var url = Utils.GetUrl(appointmentItem.Body, oldDomain);
-                if (Utils.SettingIsActive(url, "requireDisplayName"))
-                {
-                    buttonRequireDisplayName.Checked = true;
-                }
                 if (Utils.SettingIsActive(url, "startWithAudioMuted"))
                 {
                     buttonStartWithAudioMuted.Checked = true;
@@ -80,11 +76,6 @@ namespace JitsiMeetOutlook
             {
                 // New Meeting
                 await appendNewMeetingText();
-                if (Properties.Settings.Default.requireDisplayName)
-                {
-                    toggleRequireName();
-                    buttonRequireDisplayName.Checked = true;
-                }
                 if (Properties.Settings.Default.startWithAudioMuted)
                 {
                     toggleMuteOnStart();

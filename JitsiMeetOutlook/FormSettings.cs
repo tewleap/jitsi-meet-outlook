@@ -24,7 +24,6 @@ namespace JitsiMeetOutlook
             loadRoomIDButtons();
             loadStartWithAudioMutedButtons();
             loadStartWithVideoMutedButtons();
-            loadRequireDisplayNameButtons();
 
             // Load text field
             textBoxDomain.Text = Properties.Settings.Default.Domain;
@@ -140,14 +139,6 @@ namespace JitsiMeetOutlook
             }
 
             // Set toggles
-            if (radioButtonRequireDisplayNameToggled.Checked)
-            {
-                Properties.Settings.Default.requireDisplayName = true;
-            }
-            else
-            {
-                Properties.Settings.Default.requireDisplayName = false;
-            }
 
             if (radioButtonStartWithAudioMutedToggled.Checked)
             {
@@ -225,20 +216,6 @@ namespace JitsiMeetOutlook
                 radioButtonRandomRoomID.Checked = false;
                 radioButtonCustomRoomID.Checked = true;
                 textBoxRoomID.Text = Properties.Settings.Default.roomID;
-            }
-        }
-
-        private void loadRequireDisplayNameButtons()
-        {
-            if (Properties.Settings.Default.requireDisplayName)
-            {
-                radioButtonRequireDisplayNameToggled.Checked = true;
-                radioButtonRequireDisplayNameUntoggled.Checked = false;
-            }
-            else
-            {
-                radioButtonRequireDisplayNameToggled.Checked = false;
-                radioButtonRequireDisplayNameUntoggled.Checked = true;
             }
         }
 

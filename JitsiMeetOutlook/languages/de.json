@@ -1,6 +1,6 @@
 {
   "calendarRibbonButton": {
-    "buttonNewJitsiMeeting": "Neues Jitsi-Meeting"
+    "buttonNewJitsiMeeting": "Neues Meeting"
   },
 
   "appointmentItem": {
@@ -17,7 +17,8 @@
     "buttonRandomRoomID": "Zufällige ID",
     "buttonRequireDisplayName": "Name erforderlich",
     "buttonStartWithAudioMuted": "Stumm beitreten",
-    "buttonStartWithVideoMuted": "Ohne Video beitreten"
+    "buttonStartWithVideoMuted": "Ohne Video beitreten",
+    "buttonNewJitsiMeeting": "Neues Meeting"
   },
 
   "settings": {

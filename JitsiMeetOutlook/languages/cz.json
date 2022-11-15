@@ -14,7 +14,8 @@
     "buttonRandomRoomID": "Náhodné ID",
     "buttonRequireDisplayName": "Vyžadovat jméno",
     "buttonStartWithAudioMuted": "Začít se ztišeným zvukem",
-    "buttonStartWithVideoMuted": "Začít s vypnutou kamerou"
+    "buttonStartWithVideoMuted": "Začít s vypnutou kamerou",
+    "buttonNewJitsiMeeting": "Nová schůzka"
   },
 
   "settings": {
