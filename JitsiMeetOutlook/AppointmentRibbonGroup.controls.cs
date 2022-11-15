@@ -127,12 +127,11 @@ namespace JitsiMeetOutlook
                 endSel.InsertAfter("\n");
                 endSel.MoveDown(Word.WdUnits.wdLine);
             }
-            endSel.InsertAfter(Globals.ThisAddIn.getElementTranslation("appointmentItem", "textBodyMessage"));
             endSel.EndKey(Word.WdUnits.wdLine);
             var hyperLink = wordDocument.Hyperlinks.Add(endSel.Range, link, ref missing, ref missing, link, ref missing);
             hyperLink.Range.Font.Size = 16;
             hyperLink.Application.Options.CtrlClickHyperlinkToOpen = false;
-            hyperLink.TextToDisplay = "Join the meeting";
+            hyperLink.TextToDisplay = Globals.ThisAddIn.getElementTranslation("appointmentItem", "textBodyMessage");
 
             endSel.EndKey(Word.WdUnits.wdLine);
             endSel.InsertAfter("\n");
@@ -237,10 +236,9 @@ namespace JitsiMeetOutlook
                 if (wLinks[i].Address.Contains(oldDomain))
                 {
                     var hyperlink = wLinks[i];
-                    var completeUrl = $"{hyperlink.Address}#{hyperlink.SubAddress}";
+                    var completeUrl = hyperlink.GetCompleteUrl();
                     var urlNew = completeUrl.Replace(Utils.findRoomId(appointmentItem.Body, oldDomain), newRoomIdLegal);
                     hyperlink.Address = fixUrl(urlNew);
-                    //hyperlink.TextToDisplay = fixUrl(urlNew);
                 }
             }
 
@@ -304,7 +302,7 @@ namespace JitsiMeetOutlook
                 if (wLinks[i].Address.Contains(oldDomain))
                 {
                     var hyperlink = wLinks[i];
-                    var urlMatch = $"{hyperlink.Address}#{hyperlink.SubAddress}";
+                    var urlMatch = hyperlink.GetCompleteUrl();
                     string urlNew;
                     if (Utils.SettingIsActive(urlMatch, setting))
                     {
@@ -323,7 +321,6 @@ namespace JitsiMeetOutlook
                         }
                     }
                     hyperlink.Address = fixUrl(urlNew);
-                    //hyperlink.TextToDisplay = fixUrl(urlNew);
                 }
             }
         }
@@ -342,6 +339,14 @@ namespace JitsiMeetOutlook
             }
 
             return fixedUrl;
+        }
+    }
+
+    public static class HyperLinkExtension
+    {
+        public static string GetCompleteUrl(this Hyperlink hyperLink)
+        {
+            return $"{hyperLink.Address}{(!string.IsNullOrEmpty(hyperLink.SubAddress) ? ($"#{hyperLink.SubAddress}") : null)}";
         }
     }
 }

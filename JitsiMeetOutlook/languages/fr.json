@@ -4,7 +4,7 @@
   },
 
   "appointmentItem": {
-    "textBodyMessage": "\r\nJitsi-Meeting \r\n\nRejoignez la conférence : ",
+    "textBodyMessage": "Jitsi-Meeting Rejoignez la conférence",
     "textBodyMessagePhone": "\n\rNuméro de téléphone : ",
     "textBodyPin": "\r\nNuméro de conférence: ",
     "textBodyDisclaimer": "\n\r",
