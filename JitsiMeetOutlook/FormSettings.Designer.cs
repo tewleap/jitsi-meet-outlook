@@ -61,8 +61,6 @@
             this.comboBoxRandomGeneratorMode = new System.Windows.Forms.ComboBox();
             this.tabPageMeetingOptions = new System.Windows.Forms.TabPage();
             this.tabPageLanguage = new System.Windows.Forms.TabPage();
-            this.tabPageMeetingOptions = new System.Windows.Forms.TabPage();
-            this.tabPageLanguage = new System.Windows.Forms.TabPage();
             this.tabPageAdvanced = new System.Windows.Forms.TabPage();
             this.checkedListBoxToolbar = new System.Windows.Forms.CheckedListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
