@@ -1,7 +1,7 @@
 {
   "appointmentItem": {
     "textBodyDisclaimer": "\n\r",
-    "textBodyMessage": "\nGå med i mötet: ",
+    "textBodyMessage": "Gå med i mötet",
     "textBodyMessagePhone": "Slå in nummer:\n",
     "textBodyPin": "\nKonferensnummer (PIN):",
     "textBodySupport": "Hur ansluter jag till mötet?"
@@ -12,10 +12,11 @@
     "buttonStartWithAudioMuted": "Mic av vid start",
     "buttonStartWithVideoMuted": "Video av vid start",
     "fieldRoomID": "Id:",
-    "fieldRoomIDSuperTip": "Längre namn är säkrare."
+    "fieldRoomIDSuperTip": "Längre namn är säkrare.",
+    "buttonNewJitsiMeeting": "Nytt möte"
   },
   "calendarRibbonButton": {
-    "buttonNewJitsiMeeting": "Nytt Jitsi-möte"
+    "buttonNewJitsiMeeting": "Nytt möte"
   },
   "roomNameGenerator": {
     "adjective": [

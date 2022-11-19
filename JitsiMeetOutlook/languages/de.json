@@ -1,10 +1,10 @@
 {
   "calendarRibbonButton": {
-    "buttonNewJitsiMeeting": "Neues Jitsi-Meeting"
+    "buttonNewJitsiMeeting": "Neues Meeting"
   },
 
   "appointmentItem": {
-    "textBodyMessage": "\r\nJitsi-Meeting \r\n\nTreten Sie hier dem Meeting bei: ",
+    "textBodyMessage": "Jitsi-Meeting Treten Sie hier dem Meeting bei",
     "textBodyMessagePhone": "\n\rSie können sich auch über ein Telefon einwählen: ",
     "textBodyPin": "\r\nWarten Sie den Signalton ab und geben Sie die Konferenznummer gefolgt von einem „#“ ein: ",
     "textBodyDisclaimer": "\n\r",
@@ -17,7 +17,8 @@
     "buttonRandomRoomID": "Zufällige ID",
     "buttonRequireDisplayName": "Name erforderlich",
     "buttonStartWithAudioMuted": "Stumm beitreten",
-    "buttonStartWithVideoMuted": "Ohne Video beitreten"
+    "buttonStartWithVideoMuted": "Ohne Video beitreten",
+    "buttonNewJitsiMeeting": "Neues Meeting"
   },
 
   "settings": {

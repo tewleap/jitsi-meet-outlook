@@ -62,10 +62,6 @@ namespace JitsiMeetOutlook
                 }
 
                 var url = Utils.GetUrl(appointmentItem.Body, oldDomain);
-                if (Utils.SettingIsActive(url, "requireDisplayName"))
-                {
-                    buttonRequireDisplayName.Checked = true;
-                }
                 if (Utils.SettingIsActive(url, "startWithAudioMuted"))
                 {
                     buttonStartWithAudioMuted.Checked = true;
@@ -80,11 +76,6 @@ namespace JitsiMeetOutlook
             {
                 // New Meeting
                 await appendNewMeetingText();
-                if (Properties.Settings.Default.requireDisplayName)
-                {
-                    toggleRequireName();
-                    buttonRequireDisplayName.Checked = true;
-                }
                 if (Properties.Settings.Default.startWithAudioMuted)
                 {
                     toggleMuteOnStart();
@@ -136,10 +127,12 @@ namespace JitsiMeetOutlook
                 endSel.InsertAfter("\n");
                 endSel.MoveDown(Word.WdUnits.wdLine);
             }
-            endSel.InsertAfter(Globals.ThisAddIn.getElementTranslation("appointmentItem", "textBodyMessage"));
             endSel.EndKey(Word.WdUnits.wdLine);
             var hyperLink = wordDocument.Hyperlinks.Add(endSel.Range, link, ref missing, ref missing, link, ref missing);
             hyperLink.Range.Font.Size = 16;
+            hyperLink.Application.Options.CtrlClickHyperlinkToOpen = false;
+            hyperLink.TextToDisplay = Globals.ThisAddIn.getElementTranslation("appointmentItem", "textBodyMessage");
+
             endSel.EndKey(Word.WdUnits.wdLine);
             endSel.InsertAfter("\n");
             endSel.MoveDown(Word.WdUnits.wdLine);
@@ -242,9 +235,10 @@ namespace JitsiMeetOutlook
             {
                 if (wLinks[i].Address.Contains(oldDomain))
                 {
-                    var urlNew = wLinks[i].TextToDisplay.Replace(Utils.findRoomId(appointmentItem.Body, oldDomain), newRoomIdLegal);
-                    wLinks[i].Address = fixUrl(urlNew);
-                    wLinks[i].TextToDisplay = fixUrl(urlNew);
+                    var hyperlink = wLinks[i];
+                    var completeUrl = hyperlink.GetCompleteUrl();
+                    var urlNew = completeUrl.Replace(Utils.findRoomId(appointmentItem.Body, oldDomain), newRoomIdLegal);
+                    hyperlink.Address = fixUrl(urlNew);
                 }
             }
 
@@ -307,7 +301,8 @@ namespace JitsiMeetOutlook
             {
                 if (wLinks[i].Address.Contains(oldDomain))
                 {
-                    var urlMatch = wLinks[i].TextToDisplay;
+                    var hyperlink = wLinks[i];
+                    var urlMatch = hyperlink.GetCompleteUrl();
                     string urlNew;
                     if (Utils.SettingIsActive(urlMatch, setting))
                     {
@@ -325,8 +320,7 @@ namespace JitsiMeetOutlook
                             urlNew = urlMatch + "#config." + setting + "=true";
                         }
                     }
-                    wLinks[i].Address = fixUrl(urlNew);
-                    wLinks[i].TextToDisplay = fixUrl(urlNew);
+                    hyperlink.Address = fixUrl(urlNew);
                 }
             }
         }
@@ -345,6 +339,14 @@ namespace JitsiMeetOutlook
             }
 
             return fixedUrl;
+        }
+    }
+
+    public static class HyperLinkExtension
+    {
+        public static string GetCompleteUrl(this Hyperlink hyperLink)
+        {
+            return $"{hyperLink.Address}{(!string.IsNullOrEmpty(hyperLink.SubAddress) ? ($"#{hyperLink.SubAddress}") : null)}";
         }
     }
 }

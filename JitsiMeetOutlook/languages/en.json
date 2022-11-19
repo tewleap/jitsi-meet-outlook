@@ -1,10 +1,10 @@
 {
   "calendarRibbonButton": {
-    "buttonNewJitsiMeeting": "New Jitsi Meeting"
+    "buttonNewJitsiMeeting": "New Meeting"
   },
 
   "appointmentItem": {
-    "textBodyMessage": "\nJoin the meeting: ",
+    "textBodyMessage": "Join the meeting",
     "textBodyMessagePhone": "Dial in numbers:\n",
     "textBodyPin": "\nConference number (PIN): ",
     "textBodyDisclaimer": "DISCLAIMER: Example\n\r",
@@ -17,7 +17,8 @@
     "buttonRandomRoomID": "Random ID",
     "buttonRequireDisplayName": "Require Name",
     "buttonStartWithAudioMuted": "Mute on Start",
-    "buttonStartWithVideoMuted": "No Video on Start"
+    "buttonStartWithVideoMuted": "No Video on Start",
+    "buttonNewJitsiMeeting": "New Meeting"
   },
 
   "settings": {
