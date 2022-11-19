@@ -62,8 +62,8 @@
             this.tabPageMeetingOptions = new System.Windows.Forms.TabPage();
             this.tabPageLanguage = new System.Windows.Forms.TabPage();
             this.tabPageAdvanced = new System.Windows.Forms.TabPage();
-            this.checkedListBoxToolbar = new System.Windows.Forms.CheckedListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkedListBoxToolbar = new System.Windows.Forms.CheckedListBox();
             this.menuStrip1.SuspendLayout();
             this.groupBoxDomain.SuspendLayout();
             this.groupBoxToggleDefaults.SuspendLayout();
@@ -395,7 +395,6 @@
             this.tabPageRoomId.UseVisualStyleBackColor = true;
             // 
             // groupBoxRandomGeneratorMode
-            // groupBoxRandomGeneratorMode
             // 
             this.groupBoxRandomGeneratorMode.Controls.Add(this.comboBoxRandomGeneratorMode);
             this.groupBoxRandomGeneratorMode.Location = new System.Drawing.Point(6, 82);
@@ -449,6 +448,17 @@
             this.tabPageAdvanced.UseVisualStyleBackColor = true;
             this.tabPageAdvanced.Click += new System.EventHandler(this.tabPageAdvanced_Click);
             // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.checkedListBoxToolbar);
+            this.groupBox1.Location = new System.Drawing.Point(-4, 0);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(324, 168);
+            this.groupBox1.TabIndex = 1;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Toolbar settings";
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
             // checkedListBoxToolbar
             // 
             this.checkedListBoxToolbar.CheckOnClick = true;
@@ -489,42 +499,10 @@
             "View Shortcuts"});
             this.checkedListBoxToolbar.Location = new System.Drawing.Point(1, 14);
             this.checkedListBoxToolbar.MultiColumn = true;
-            this.checkedListBoxToolbar.Name = "checkedListBoxToolbar";
             this.checkedListBoxToolbar.Size = new System.Drawing.Size(320, 154);
             this.checkedListBoxToolbar.Sorted = true;
             this.checkedListBoxToolbar.TabIndex = 0;
             this.checkedListBoxToolbar.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
-            // 
-            // groupBox1
-            // 
-            this.groupBox1.Controls.Add(this.checkedListBoxToolbar);
-            this.groupBox1.Location = new System.Drawing.Point(-4, 0);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(324, 168);
-            this.groupBox1.TabIndex = 1;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Toolbar settings";
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
-            // 
-            // tabPageMeetingOptions
-            // 
-            this.tabPageMeetingOptions.Controls.Add(this.groupBoxToggleDefaults);
-            this.tabPageMeetingOptions.Location = new System.Drawing.Point(4, 22);
-            this.tabPageMeetingOptions.Name = "tabPageMeetingOptions";
-            this.tabPageMeetingOptions.Size = new System.Drawing.Size(320, 168);
-            this.tabPageMeetingOptions.TabIndex = 2;
-            this.tabPageMeetingOptions.Text = "Meeting Options";
-            this.tabPageMeetingOptions.UseVisualStyleBackColor = true;
-            // 
-            // tabPageLanguage
-            // 
-            this.tabPageLanguage.Controls.Add(this.groupBoxLanguage);
-            this.tabPageLanguage.Location = new System.Drawing.Point(4, 22);
-            this.tabPageLanguage.Name = "tabPageLanguage";
-            this.tabPageLanguage.Size = new System.Drawing.Size(320, 168);
-            this.tabPageLanguage.TabIndex = 3;
-            this.tabPageLanguage.Text = "Language";
-            this.tabPageLanguage.UseVisualStyleBackColor = true;
             // 
             // FormSettings
             // 
@@ -609,7 +587,7 @@
         private System.Windows.Forms.GroupBox groupBoxRandomGeneratorMode;
         private System.Windows.Forms.ComboBox comboBoxRandomGeneratorMode;
         private System.Windows.Forms.TabPage tabPageAdvanced;
-        private System.Windows.Forms.CheckedListBox checkedListBoxToolbar;
         private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.CheckedListBox checkedListBoxToolbar;
     }
 }

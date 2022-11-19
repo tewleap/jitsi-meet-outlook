@@ -29,11 +29,6 @@ namespace JitsiMeetOutlook
             randomiseRoomId();
         }
 
-        private void buttonRequireDisplayName_Click(object sender, RibbonControlEventArgs e)
-        {
-            toggleRequireName();
-        }
-
         private void buttonStartWithAudioMuted_Click(object sender, RibbonControlEventArgs e)
         {
             toggleMuteOnStart();

@@ -24,6 +24,7 @@ namespace JitsiMeetOutlook
             loadRoomIDButtons();
             loadStartWithAudioMutedButtons();
             loadStartWithVideoMutedButtons();
+            loadToolBarOptions();
 
             // Load text field
             textBoxDomain.Text = Properties.Settings.Default.Domain;
@@ -160,13 +161,12 @@ namespace JitsiMeetOutlook
 
             if (checkedListBoxToolbar.CheckedItems.Count > 0)
             {
-                if (Properties.Settings.Default.toolBarOptions == null)
-                {
-                    Properties.Settings.Default.toolBarOptions = new System.Collections.Specialized.StringCollection();
-                }
+                Properties.Settings.Default.toolBarOptions = new System.Collections.Specialized.StringCollection();
 
                 foreach (var item in checkedListBoxToolbar.CheckedItems)
-                        Properties.Settings.Default.toolBarOptions.Add(item.ToString());
+                {
+                    Properties.Settings.Default.toolBarOptions.Add(item.ToString());
+                }
             }
 
             // Set language
@@ -258,6 +258,18 @@ namespace JitsiMeetOutlook
             }
         }
 
+        private void loadToolBarOptions()
+        {
+            if (Properties.Settings.Default.toolBarOptions != null && Properties.Settings.Default.toolBarOptions.Count > 0)
+            {
+                foreach (var item in Properties.Settings.Default.toolBarOptions)
+                {
+                    var index = checkedListBoxToolbar.Items.IndexOf(item);
+                    checkedListBoxToolbar.SetItemChecked(index, true);
+                }
+            }
+        }
+
         private void loadComboBoxLanguage()
         {
             JsonElement jsonUILanguage = Globals.ThisAddIn.getLanguageJsonRoot().GetProperty("settings");
@@ -282,7 +294,7 @@ namespace JitsiMeetOutlook
 
         private void checkedListBox1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            Console.WriteLine(sender);
+
         }
 
         private void groupBox1_Enter(object sender, EventArgs e)

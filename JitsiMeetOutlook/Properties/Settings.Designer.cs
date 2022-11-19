@@ -217,6 +217,42 @@ namespace JitsiMeetOutlook.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute(@"<?xml version=""1.0"" encoding=""utf-16""?>
+<ArrayOfString xmlns:xsd=""http://www.w3.org/2001/XMLSchema"" xmlns:xsi=""http://www.w3.org/2001/XMLSchema-instance"">
+  <string>Microphone</string>
+  <string>Camera</string>
+  <string>Screenshare</string>
+  <string>Chat</string>
+  <string>Raise Hand</string>
+  <string>Participants Pane</string>
+  <string>Toggle Tile View</string>
+  <string>Toggle Camera</string>
+  <string>Leave Meeting</string>
+  <string>Profile</string>
+  <string>Invite people</string>
+  <string>Performance settings</string>
+  <string>View Full Screen</string>
+  <string>Security Options</string>
+  <string>Closed Caption</string>
+  <string>Recording</string>
+  <string>Highlight Moments (when Recording)</string>
+  <string>Live Streaming</string>
+  <string>Share Video</string>
+  <string>Share Audio</string>
+  <string>Toggle Noise Suppression</string>
+  <string>Etherpad</string>
+  <string>Select Background</string>
+  <string>Undock IFrame</string>
+  <string>Dock IFrame</string>
+  <string>Settings</string>
+  <string>Speaker Stats</string>
+  <string>View Shortcuts</string>
+  <string>Embed Meeting</string>
+  <string>Leave Feedback</string>
+  <string>Download App</string>
+  <string>Help</string>
+  <string>Filmstrip</string>
+</ArrayOfString>")]
         public global::System.Collections.Specialized.StringCollection toolBarOptions {
             get {
                 return ((global::System.Collections.Specialized.StringCollection)(this["toolBarOptions"]));

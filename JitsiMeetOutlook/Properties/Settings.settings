@@ -51,7 +51,42 @@
       <Value Profile="(Default)">https://www.google.se/</Value>
     </Setting>
     <Setting Name="toolBarOptions" Type="System.Collections.Specialized.StringCollection" Scope="User">
-      <Value Profile="(Default)" />
+      <Value Profile="(Default)">&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;ArrayOfString xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;string&gt;Microphone&lt;/string&gt;
+  &lt;string&gt;Camera&lt;/string&gt;
+  &lt;string&gt;Screenshare&lt;/string&gt;
+  &lt;string&gt;Chat&lt;/string&gt;
+  &lt;string&gt;Raise Hand&lt;/string&gt;
+  &lt;string&gt;Participants Pane&lt;/string&gt;
+  &lt;string&gt;Toggle Tile View&lt;/string&gt;
+  &lt;string&gt;Toggle Camera&lt;/string&gt;
+  &lt;string&gt;Leave Meeting&lt;/string&gt;
+  &lt;string&gt;Profile&lt;/string&gt;
+  &lt;string&gt;Invite people&lt;/string&gt;
+  &lt;string&gt;Performance settings&lt;/string&gt;
+  &lt;string&gt;View Full Screen&lt;/string&gt;
+  &lt;string&gt;Security Options&lt;/string&gt;
+  &lt;string&gt;Closed Caption&lt;/string&gt;
+  &lt;string&gt;Recording&lt;/string&gt;
+  &lt;string&gt;Highlight Moments (when Recording)&lt;/string&gt;
+  &lt;string&gt;Live Streaming&lt;/string&gt;
+  &lt;string&gt;Share Video&lt;/string&gt;
+  &lt;string&gt;Share Audio&lt;/string&gt;
+  &lt;string&gt;Toggle Noise Suppression&lt;/string&gt;
+  &lt;string&gt;Etherpad&lt;/string&gt;
+  &lt;string&gt;Select Background&lt;/string&gt;
+  &lt;string&gt;Undock IFrame&lt;/string&gt;
+  &lt;string&gt;Dock IFrame&lt;/string&gt;
+  &lt;string&gt;Settings&lt;/string&gt;
+  &lt;string&gt;Speaker Stats&lt;/string&gt;
+  &lt;string&gt;View Shortcuts&lt;/string&gt;
+  &lt;string&gt;Embed Meeting&lt;/string&gt;
+  &lt;string&gt;Leave Feedback&lt;/string&gt;
+  &lt;string&gt;Download App&lt;/string&gt;
+  &lt;string&gt;Help&lt;/string&gt;
+  &lt;string&gt;Filmstrip&lt;/string&gt;
+&lt;/ArrayOfString&gt;</Value>
     </Setting>
   </Settings>
 </SettingsFile>

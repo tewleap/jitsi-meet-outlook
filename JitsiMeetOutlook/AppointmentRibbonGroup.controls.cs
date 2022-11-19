@@ -8,6 +8,13 @@ using JitsiMeetOutlook.Entities;
 using Microsoft.Office.Interop.Word;
 using System.Collections.Generic;
 using Task = System.Threading.Tasks.Task;
+using System.Collections.Specialized;
+using JitsiMeetOutlook.Properties;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.Window;
+using System.ComponentModel;
+using System.IdentityModel.Protocols.WSTrust;
+using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace JitsiMeetOutlook
 {
@@ -85,6 +92,10 @@ namespace JitsiMeetOutlook
                 {
                     toggleVideoOnStart();
                     buttonStartWithVideoMuted.Checked = true;
+                }
+                if (Properties.Settings.Default.toolBarOptions?.Count > 0 && !ToolBarSettings.Values.All(x => Properties.Settings.Default.toolBarOptions.Contains(x.Key)))
+                {
+                    addToolBarSettings(Properties.Settings.Default.toolBarOptions);
                 }
             }
 
@@ -278,11 +289,10 @@ namespace JitsiMeetOutlook
             toggleSetting("startWithVideoMuted");
         }
 
-        public void toggleRequireName()
+        public void addToolBarSettings(StringCollection settings)
         {
-            toggleSetting("requireDisplayName");
+            addSettings("toolbarButtons", settings.GetToolBarSettings());
         }
-
 
         private void addJitsiMeeting()
         {
@@ -325,6 +335,34 @@ namespace JitsiMeetOutlook
             }
         }
 
+        private void addSettings(string setting, string value)
+        {
+            // Find Jitsi URL in message
+            Word.Document wordDocument = appointmentItem.GetInspector.WordEditor as Word.Document;
+
+            Word.Hyperlinks wLinks = wordDocument.Hyperlinks;
+            for (int i = 1; i <= wLinks.Count; i++)
+            {
+                if (wLinks[i].Address.Contains(oldDomain))
+                {
+                    var hyperlink = wLinks[i];
+                    var urlMatch = hyperlink.GetCompleteUrl();
+                    string urlNew;
+                    // Otherwise add
+                    if (urlMatch.Contains("#config"))
+                    {
+                        urlNew = urlMatch + "&config." + setting + "=" + value;
+                    }
+                    else
+                    {
+                        urlNew = urlMatch + "#config." + setting + "=" + value;
+                    }
+
+                    hyperlink.Address = fixUrl(urlNew);
+                }
+            }
+        }
+
         private string fixUrl(string url)
         {
             string fixedUrl = url;
@@ -342,11 +380,25 @@ namespace JitsiMeetOutlook
         }
     }
 
-    public static class HyperLinkExtension
+    public static class Extensions
     {
         public static string GetCompleteUrl(this Hyperlink hyperLink)
         {
             return $"{hyperLink.Address}{(!string.IsNullOrEmpty(hyperLink.SubAddress) ? ($"#{hyperLink.SubAddress}") : null)}";
+        }
+
+        public static string GetToolBarSettings(this StringCollection strings)
+        {
+            var result = new List<string>();
+
+            foreach (var item in strings)
+            {
+                ToolBarSettings.Values.TryGetValue(item, out var value);
+
+                if (value != null)
+                    result.Add(value);
+            }
+            return JsonConvert.SerializeObject(result);
         }
     }
 }
